@@ -11,7 +11,8 @@ const Ticket: React.FC<TypeProps> = ({ticket}) => {
     <div className={'ticket'}>
       <div className="ticket__header">
         <div className="ticket__header-price">
-          {ticket.price}
+          {Math.round(ticket.price).toLocaleString("ru-RU", {style: "currency", currency: "RUB"})}
+
         </div>
         <div className="ticket__header-logo">
           <img src={`https://pics.avs.io/99/36/${ticket.carrier}.png`} alt="carrier"/>
@@ -32,15 +33,15 @@ const Ticket: React.FC<TypeProps> = ({ticket}) => {
               В пути
             </div>
             <div className="ticket__info-cell-content">
-              2 часа 15 минут
+              {new Date(ticket.segments[0].duration * 1000).toISOString().substr(14, 5)}
             </div>
           </div>
           <div className="ticket__info-cell">
             <div className="ticket__info-cell-header">
-              {ticket.segments[1].stops.length} пересадки
+              {ticket.segments[0].stops.length} пересадки
             </div>
             <div className="ticket__info-cell-content">
-              {ticket.segments[0].stops}
+              {ticket.segments[0].stops.join(', ')}
             </div>
           </div>
         </div>
@@ -66,7 +67,7 @@ const Ticket: React.FC<TypeProps> = ({ticket}) => {
               {ticket.segments[1].stops.length} пересадки
             </div>
             <div className="ticket__info-cell-content">
-              {ticket.segments[1].stops}
+              {ticket.segments[1].stops.join(', ')}
             </div>
           </div>
         </div>

@@ -1,0 +1,45 @@
+
+
+.fContainer {
+  width: 232px;
+  height: 252px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-right: 20px;
+
+  &__header {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 20px 20px 5px 20px;
+  }
+
+
+  &__filters {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 13px;
+    line-height: 20px;
+    color: #4A4A4A;
+
+    > div {
+      padding: 0 20px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      label {
+        width: 100%;
+        cursor: pointer;
+      }
+    }
+    > div:hover {
+      background: #F1FCFF;
+    }
+  }
+}
+
+
