@@ -1,0 +1,70 @@
+
+
+%fontTemplate {
+  font-family: 'Open Sans', serif;
+  font-style: normal;
+  font-weight: 600;
+}
+.ticket {
+  width: 502px;
+  height: 184px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+
+    &-price {
+      @extend %fontTemplate;
+      font-size: 24px;
+      line-height: 24px;
+      color: #2196F3;
+    }
+
+    &-logo {
+      img {
+        width: 110px;
+        height: 36px;
+      }
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+
+    &-cell {
+      margin-bottom: 10px;
+      width: 30%;
+      &-header {
+        @extend %fontTemplate;
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: #A0B0B9;
+      }
+      &-content {
+        @extend %fontTemplate;
+        font-size: 14px;
+        line-height: 21px;
+        color: #4A4A4A;
+      }
+    }
+
+  }
+}
