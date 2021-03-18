@@ -3,10 +3,12 @@ import {combineReducers, configureStore} from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 import ticketsReducer from  './tickets-reducer'
 import appReducer from  './app-reducer'
+import filterReducer from  './filter-reducer'
 
 const rootReducer = combineReducers({
   appReducer,
-  ticketsReducer
+  ticketsReducer,
+  filterReducer
 })
 
 export type RootState = ReturnType<typeof store.getState>

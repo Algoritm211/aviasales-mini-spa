@@ -1,7 +1,15 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './FilterContainer.scss'
+import {useDispatch} from "react-redux";
 
 const FilterContainer: React.FC = () => {
+
+  const dispatch = useDispatch()
+  const [numberOfTransfers, setNumberOfTransfers] = useState(-1)
+
+  useEffect(() => {
+    dispatch(numberOfTransfers)
+  }, [dispatch, numberOfTransfers])
 
   return (
     <div className={'fContainer'}>
@@ -10,11 +18,11 @@ const FilterContainer: React.FC = () => {
       </div>
       <div className="fContainer__filters">
         <div>
-          <input type="checkbox" id="all"/>
+          <input type="checkbox" id="all" onClick={() => setNumberOfTransfers(-1)}/>
           <label htmlFor="all">Все</label>
         </div>
         <div>
-          <input type="checkbox" id="without_transfer"/>
+          <input type="checkbox" id="without_transfer" />
           <label htmlFor="without_transfer">Без пересадок</label>
         </div>
         <div>

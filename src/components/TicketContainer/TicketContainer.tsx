@@ -7,19 +7,25 @@ import {loadAllTickets} from "../../redux/tickets-reducer";
 import './TicketContainer.scss'
 import cn from 'classnames'
 
+type MainSortType = 'cheapest' | 'fastest' | 'optimal'
+
 const TicketContainer = () => {
   const dispatch = useDispatch()
-  const tickets = useSelector(getTickets)
+  let tickets = useSelector(getTickets)
   const isLoading = useSelector(getTicketsLoading)
-  const [mainSort, setMainSort] = useState<'cheapest' | 'fastest' | 'optimal'>('optimal')
+  const [mainSort, setMainSort] = useState<MainSortType>('optimal')
 
   useEffect(() => {
     dispatch(loadAllTickets('load'))
   }, [dispatch])
 
+  // returning loader
   if (isLoading) {
     return <div>Загрузка...</div>
   }
+
+  // Main sorting
+  tickets = mainSortTickets(tickets, mainSort)
 
   const ticketsBlock = tickets.map((ticket: ITicket, index ) => {
     return <Ticket ticket={ticket} key={index}/>
@@ -51,5 +57,21 @@ const TicketContainer = () => {
     </div>
   );
 };
+
+function mainSortTickets(tickets: Array<ITicket>, sortType: MainSortType) {
+  if (sortType === 'cheapest') {
+    tickets = tickets.slice().sort((a, b) => {
+      return a.price - b.price;
+    })
+    return tickets
+  } else if (sortType === 'fastest') {
+    tickets = tickets.slice().sort((a, b) => {
+      return a.segments[0].duration - b.segments[0].duration;
+    })
+    return tickets
+  } else {
+    return tickets
+  }
+}
 
 export default TicketContainer;
