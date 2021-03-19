@@ -1,9 +1,9 @@
 
 import {combineReducers, configureStore} from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
-import ticketsReducer from  './tickets-reducer'
-import appReducer from  './app-reducer'
-import filterReducer from  './filter-reducer'
+import ticketsReducer from  './tickets-reducer/tickets-reducer'
+import appReducer from  './app-reducer/app-reducer'
+import filterReducer from  './filter-reducer/filter-reducer'
 
 const rootReducer = combineReducers({
   appReducer,

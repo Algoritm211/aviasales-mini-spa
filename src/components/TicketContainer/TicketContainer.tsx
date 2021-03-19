@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {getTickets, getTicketsLoading} from "../../redux/tickets-selector";
+import {getTickets, getTicketsLoading} from "../../redux/tickets-reducer/tickets-selector";
 import Ticket from "./Ticket/Ticket";
 import {ITicket} from "../../types/types";
-import {loadAllTickets} from "../../redux/tickets-reducer";
+import {loadAllTickets} from "../../redux/tickets-reducer/tickets-reducer";
 import './TicketContainer.scss'
 import cn from 'classnames'
 
@@ -19,7 +19,7 @@ const TicketContainer = () => {
     dispatch(loadAllTickets('load'))
   }, [dispatch])
 
-  // returning loader
+  // Returning loader
   if (isLoading) {
     return <div>Загрузка...</div>
   }

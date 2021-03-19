@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {TicketAPI} from "../api/ticket-api";
+import {TicketAPI} from "../../api/ticket-api";
 
 
 export const getSearchId = createAsyncThunk(

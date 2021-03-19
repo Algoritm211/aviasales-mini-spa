@@ -1,7 +1,7 @@
 import {$CombinedState, createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {ITicket} from "../types/types";
-import {AppDispatch, RootState} from "./store";
-import {TicketAPI} from "../api/ticket-api";
+import {ITicket} from "../../types/types";
+import {AppDispatch, RootState} from "../store";
+import {TicketAPI} from "../../api/ticket-api";
 
 type ThunkAPIType = {
   dispatch: AppDispatch

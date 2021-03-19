@@ -2,8 +2,8 @@ import React, {useEffect} from 'react';
 import './App.css';
 import MainLayout from "./components/MainLayout/MainLayout";
 import {useDispatch, useSelector} from "react-redux";
-import {getAppReady} from "./redux/app-selector";
-import {getSearchId} from "./redux/app-reducer";
+import {getAppReady} from "./redux/app-reducer/app-selector";
+import {getSearchId} from "./redux/app-reducer/app-reducer";
 
 function App() {
 
