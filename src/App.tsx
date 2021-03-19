@@ -4,6 +4,7 @@ import MainLayout from "./components/MainLayout/MainLayout";
 import {useDispatch, useSelector} from "react-redux";
 import {getAppReady} from "./redux/app-reducer/app-selector";
 import {getSearchId} from "./redux/app-reducer/app-reducer";
+import Loader from "./components/Loader/Loader";
 
 function App() {
 
@@ -14,13 +15,9 @@ function App() {
     dispatch(getSearchId())
   }, [])
 
-  if (!isReady) {
-    return <div>Загрузка...</div>
-  }
-
   return (
     <div className="App">
-      <MainLayout />
+      {isReady ? <MainLayout /> : <Loader/>}
     </div>
   );
 }

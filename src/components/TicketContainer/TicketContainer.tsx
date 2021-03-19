@@ -6,6 +6,8 @@ import {ITicket} from "../../types/types";
 import {loadAllTickets} from "../../redux/tickets-reducer/tickets-reducer";
 import './TicketContainer.scss'
 import cn from 'classnames'
+import {getFilters} from "../../redux/filter-reducer/filter-selector";
+import Loader from "../Loader/Loader";
 
 type MainSortType = 'cheapest' | 'fastest' | 'optimal'
 
@@ -14,18 +16,16 @@ const TicketContainer = () => {
   let tickets = useSelector(getTickets)
   const isLoading = useSelector(getTicketsLoading)
   const [mainSort, setMainSort] = useState<MainSortType>('optimal')
+  const filters = useSelector(getFilters)
 
   useEffect(() => {
     dispatch(loadAllTickets('load'))
   }, [dispatch])
 
-  // Returning loader
-  if (isLoading) {
-    return <div>Загрузка...</div>
-  }
-
   // Main sorting
   tickets = mainSortTickets(tickets, mainSort)
+  // Filter options
+  tickets = filterFunction(tickets, filters)
 
   const ticketsBlock = tickets.map((ticket: ITicket, index ) => {
     return <Ticket ticket={ticket} key={index}/>
@@ -52,7 +52,7 @@ const TicketContainer = () => {
         </div>
       </div>
       <div>
-        {ticketsBlock}
+        {isLoading ? <Loader /> : ticketsBlock}
       </div>
     </div>
   );
@@ -70,6 +70,24 @@ function mainSortTickets(tickets: Array<ITicket>, sortType: MainSortType) {
     })
     return tickets
   } else {
+    return tickets
+  }
+}
+
+
+function filterFunction(tickets: Array<ITicket>,filterArr: number[]) {
+  if (filterArr.length === 0 || filterArr.includes(-1)) {
+    return tickets
+  } else if (filterArr.includes(0)) {
+    tickets = tickets.slice().filter(ticket => {
+      return ticket.segments[0].stops.length === 0 && ticket.segments[1].stops.length === 0
+    })
+    return tickets
+  } else {
+    const minNumberOfTransfers = filterArr.reduce((a,b)=>Math.min(a,b), Infinity);
+    tickets = tickets.slice().filter(ticket => {
+      return ticket.segments[0].stops.length >= minNumberOfTransfers && ticket.segments[1].stops.length >= minNumberOfTransfers
+    })
     return tickets
   }
 }
