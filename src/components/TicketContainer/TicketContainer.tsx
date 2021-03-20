@@ -59,7 +59,7 @@ const TicketContainer = () => {
 };
 
 function mainSortTickets(tickets: Array<ITicket>, sortType: MainSortType) {
-  if (sortType === 'cheapest') {
+   if (sortType === 'cheapest') {
     tickets = tickets.slice().sort((a, b) => {
       return a.price - b.price;
     })
@@ -84,11 +84,13 @@ function filterFunction(tickets: Array<ITicket>,filterArr: number[]) {
     })
     return tickets
   } else {
-    const minNumberOfTransfers = filterArr.reduce((a,b)=>Math.min(a,b), Infinity);
-    tickets = tickets.slice().filter(ticket => {
-      return ticket.segments[0].stops.length >= minNumberOfTransfers && ticket.segments[1].stops.length >= minNumberOfTransfers
-    })
-    return tickets
+    let filteredTickets = [] as Array<ITicket>
+    for (let i = 0; i < tickets.length; i++) {
+      if (filterArr.includes(tickets[i].segments[0].stops.length) &&  filterArr.includes(tickets[i].segments[1].stops.length)) {
+        filteredTickets.push(tickets[i])
+      }
+    }
+    return filteredTickets
   }
 }
 

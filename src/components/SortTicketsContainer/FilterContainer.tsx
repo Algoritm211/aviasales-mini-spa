@@ -8,8 +8,6 @@ const FilterContainer: React.FC = () => {
   const dispatch = useDispatch()
   const [numberOfTransfers, setNumberOfTransfers] = useState<number[]>([])
 
-  console.log(numberOfTransfers)
-
   const onChangeTransfer = (transfersNumber: number) => {
     if (!numberOfTransfers.includes(transfersNumber)) {
       setNumberOfTransfers(prevState => [...prevState, transfersNumber])
