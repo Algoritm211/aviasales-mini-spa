@@ -10,12 +10,12 @@
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 20px;
+  border-right: 1px solid #DFE5EC;
 
   &__cell {
     padding: 15px;
     width: 33.4%;
     text-align: center;
-    z-index: 1;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
