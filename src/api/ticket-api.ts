@@ -2,7 +2,7 @@ import {instanceAxios} from "./api-config";
 import {ITicket} from "../types/types";
 
 
-type GetTicketsType = {
+export type GetTicketsType = {
   tickets: Array<ITicket>
   stop: boolean
 }

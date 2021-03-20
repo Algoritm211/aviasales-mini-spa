@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {TicketAPI} from "../../api/ticket-api";
 
 
@@ -14,9 +14,14 @@ const appReducer = createSlice({
   name: 'appReducer',
   initialState: {
     searchId: null as unknown as string,
-    isReady: false
+    isReady: false,
+    isError: false
   },
-  reducers:{},
+  reducers:{
+    setError: (state, action:PayloadAction<boolean>) => {
+      state.isError = action.payload
+    }
+  },
   extraReducers: builder => {
     builder.addCase(getSearchId.fulfilled, (state, action) => {
       state.searchId = action.payload.searchId
@@ -24,5 +29,7 @@ const appReducer = createSlice({
     })
   }
 })
+
+export const {setError} = appReducer.actions
 
 export default appReducer.reducer

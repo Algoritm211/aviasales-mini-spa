@@ -1,7 +1,8 @@
 import {$CombinedState, createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {ITicket} from "../../types/types";
 import {AppDispatch, RootState} from "../store";
-import {TicketAPI} from "../../api/ticket-api";
+import {GetTicketsType, TicketAPI} from "../../api/ticket-api";
+import { setError } from "../app-reducer/app-reducer";
 
 type ThunkAPIType = {
   dispatch: AppDispatch
@@ -15,8 +16,14 @@ export const loadAllTickets = createAsyncThunk<
   async (arg: 'load', thunkAPI) => {
     thunkAPI.dispatch(setLoading(true))
     const searchId = thunkAPI.getState().appReducer.searchId
-    const ticketsData = await TicketAPI.getTickets(searchId)
-    thunkAPI.dispatch(setLoading(false))
+    let ticketsData = {tickets: [], stop: false} as GetTicketsType;
+    try {
+      ticketsData = await TicketAPI.getTickets(searchId)
+      thunkAPI.dispatch(setLoading(false))
+    } catch (error) {
+      console.log(error)
+      thunkAPI.dispatch(setError(true))
+    }
     return ticketsData
   }
 )
