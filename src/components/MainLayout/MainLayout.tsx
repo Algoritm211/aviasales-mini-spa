@@ -2,14 +2,14 @@ import React from 'react';
 import TicketContainer from "../TicketContainer/TicketContainer";
 import FilterContainer from "../SortTicketsContainer/FilterContainer";
 import './MainLayout.scss'
-import planeHeader from '../../assets/plane-header.svg'
+import Header from "./Header/Header";
 
 const MainLayout: React.FC = () => {
   return (
     <div className={'mainLayout'}>
-      <div className="header">
-        <img src={planeHeader} alt={'header-plane'}/>
-      </div>
+      <header>
+        <Header />
+      </header>
       <main className={'main'}>
         <div>
           <FilterContainer />

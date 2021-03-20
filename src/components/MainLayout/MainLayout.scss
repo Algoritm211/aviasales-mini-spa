@@ -3,30 +3,3 @@
   justify-content: center;
 }
 
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  img {
-    width: 100px;
-    height: 100px;
-    margin: 25px 0;
-    padding: 0;
-    cursor: pointer;
-
-    &:hover {
-      animation: 1s linear 0s normal none infinite running spin;
-    }
-
-    @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-  }
-
-}
