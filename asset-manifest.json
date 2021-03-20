@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/aviasales-mini-spa/static/css/main.b7d08cb4.chunk.css",
+    "main.js": "/aviasales-mini-spa/static/js/main.8dec970e.chunk.js",
+    "main.js.map": "/aviasales-mini-spa/static/js/main.8dec970e.chunk.js.map",
+    "runtime-main.js": "/aviasales-mini-spa/static/js/runtime-main.f099fa8b.js",
+    "runtime-main.js.map": "/aviasales-mini-spa/static/js/runtime-main.f099fa8b.js.map",
+    "static/js/2.1e417811.chunk.js": "/aviasales-mini-spa/static/js/2.1e417811.chunk.js",
+    "static/js/2.1e417811.chunk.js.map": "/aviasales-mini-spa/static/js/2.1e417811.chunk.js.map",
+    "static/js/3.9e398fff.chunk.js": "/aviasales-mini-spa/static/js/3.9e398fff.chunk.js",
+    "static/js/3.9e398fff.chunk.js.map": "/aviasales-mini-spa/static/js/3.9e398fff.chunk.js.map",
+    "index.html": "/aviasales-mini-spa/index.html",
+    "static/css/main.b7d08cb4.chunk.css.map": "/aviasales-mini-spa/static/css/main.b7d08cb4.chunk.css.map",
+    "static/js/2.1e417811.chunk.js.LICENSE.txt": "/aviasales-mini-spa/static/js/2.1e417811.chunk.js.LICENSE.txt",
+    "static/media/plane-header.df195519.svg": "/aviasales-mini-spa/static/media/plane-header.df195519.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f099fa8b.js",
+    "static/js/2.1e417811.chunk.js",
+    "static/css/main.b7d08cb4.chunk.css",
+    "static/js/main.8dec970e.chunk.js"
+  ]
+}
