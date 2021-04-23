@@ -6,7 +6,7 @@
 body {
   margin: 0;
   font-family: 'Open Sans', serif;
-  background: #E5E5E5;
+  background: #f3f7fa;
 }
 
 /* Reset */
@@ -29,9 +29,6 @@ html, body {
   width: 100%;
   line-height: 1;
   font-size: 14px;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
 }
 
 input,
@@ -49,7 +46,6 @@ a:hover { text-decoration: none; }
 ul li { list-style: none; }
 
 img { vertical-align: top; }
-
 
 h1,
 h2,
